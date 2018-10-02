@@ -12,33 +12,34 @@
 
 			require ('Menu.class.php');
 			require ('Plat.class.php');	
-			<!-- require ('boissons.class.php');
-			require ('clients.class.php');
-			require ('commandes.class.php');
-			 -->
-	
-
-			$nap = new Pizza ("Pizza Napolitaine ", "9€" , " moyenne");
-			$roy = new Pizza ("Royale ", "10€", "grande");
-			$ori = new Pizza ("0rientale", "9€", "petite");
-			$3f = new Pizza ("3 Fromage", "8€", "moyenne");
 			
 	
-			$carte = [$nap,$roy,$ori,$3f];
 
-			echo '<h3>Carte des Pizza :</h3><br />';
+			$stand = new Menu ("Standard", "Plateau de charcuterie ", "Gigot d'agneau" , "Haricots-pommes de terre" , "Tartelette au citron" , "20 min" , "19€");
+			$veget= new Menu ("Végétarien ", "Salade de chêvre chaud", "steack de soja", "Carotte-brocolis" , "Mousse au chocolat" , "25 min" , "23€");
+			// $enfant = new Menu ("Enfant", "Assiette de jambon", "Glace", "10 min", "9€");
+		
+			
+	
+			$carte = [$stand, $veget];
+
+			echo '<h3>Carte des Menus :</h3><br />';
 			echo '<table>
 					<thead>
-						<th>Nom</th>
+						<th>Menu</th>
+						<th>Entrée</th>
+						<th>Plat1</th>
+						<th>Plat2</th>
+						<th>Dessert</th>
+						<th>TempPrépa</th>
 						<th>Prix</th>
-						<th>Taille</th>
 					</thead>';
 
 
 				foreach ($carte as  $key => $value) 
 				{
-    
-					echo '<tr><td>' . $value->nom . '</td><td>' . $value->prix  . '</td><td>' . $value->taille  . '</td></tr>';
+    				
+					echo '<tr><td>' . $value->menu .'<tr><td>' . $value->entrée . '</td><td>' . $value->plat1  . '</td><td>' . $value->plat2 . '</td><td>' . $value->dessert . '</td><td>' . $value->tempPrépa . '</td><td>' . $value->prix  . '</td></tr>';
 				}	
 			 	echo '</table>';
 		
